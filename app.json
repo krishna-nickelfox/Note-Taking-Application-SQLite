@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "blog-app",
-    "slug": "blog-app",
+    "name": "Notes App",
+    "slug": "Notes-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.krishnanickelfox.Notesapp"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d947f830-daaa-4911-b5a4-4213292ef5ae"
+      }
     }
   }
 }

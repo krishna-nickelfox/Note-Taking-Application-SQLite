@@ -1,24 +1,27 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
-
+import { getDB } from "@/config/db";
+import AuthContextProvider from "@/context/AuthContext";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
+import Toast from 'react-native-toast-message';
+import '../global.css';
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+  useEffect(()=>{
+    getDB()
+  },[])
+
+  return <>
+  <AuthContextProvider >
+    <Stack screenOptions={{
+      headerShown:false
+    }}>
+      {/* <Stack.Screen name="(auth)/Register" options={{
+        title:"Register Page"
+      }} /> */}
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+      </AuthContextProvider>
+      <Toast/>
+      <StatusBar style="dark" />
+  </>;
 }

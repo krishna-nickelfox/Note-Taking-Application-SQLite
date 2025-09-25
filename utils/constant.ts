@@ -1,0 +1,1 @@
+export const logo_image ='https://www.elevenforum.com/data/attachments/138/138120-8df8eb9eb0b349c01ce72f599493bff6.jpg?hash=CigP3dNo3B'
